@@ -6,9 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import dagger.hilt.android.internal.managers.ApplicationComponentManager
-import dagger.hilt.android.qualifiers.ActivityContext
-import com.moviles.homework.retrofit.DogRetrofit
+import com.moviles.homework.retrofit.ImgRetrofit
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -35,8 +33,8 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideNasaService(retrofit: Retrofit.Builder) : DogRetrofit {
-        return retrofit.build().create(DogRetrofit::class.java)
+    fun provideNasaService(retrofit: Retrofit.Builder) : ImgRetrofit {
+        return retrofit.build().create(ImgRetrofit::class.java)
     }
 
 }

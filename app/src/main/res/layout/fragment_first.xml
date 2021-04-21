@@ -19,7 +19,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
-        tools:listitem="@layout/item_dog"
+        tools:listitem="@layout/item_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     

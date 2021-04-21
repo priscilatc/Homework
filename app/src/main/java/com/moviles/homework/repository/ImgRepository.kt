@@ -1,17 +1,17 @@
 package com.moviles.homework.repository
 
-import com.moviles.homework.retrofit.DogRetrofit
+import com.moviles.homework.retrofit.ImgRetrofit
 import com.moviles.homework.retrofit.NetworkMapper
 import com.moviles.homework.room.CacheMapper
-import com.moviles.homework.room.DogDao
+import com.moviles.homework.room.ImgDao
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import com.moviles.homework.utils.DataState
 
-class DogRepository constructor(
-    private val dogDao: DogDao,
-    private val dogRetrofit: DogRetrofit,
+class ImgRepository constructor(
+    private val imgDao: ImgDao,
+    private val imgRetrofit: ImgRetrofit,
     private val cacheMapper: CacheMapper,
     private val networkMapper: NetworkMapper
 ){
@@ -19,13 +19,13 @@ class DogRepository constructor(
         emit(DataState.Loading)
         delay(1000)
         try {
-            val dogData = dogRetrofit.get()
-            val dogMap = networkMapper.mapFromEntityList(dogData)
-            for (tempDog in dogMap){
-                dogDao.insert(cacheMapper.mapToEntity(tempDog))
+            val imgData = imgRetrofit.get()
+            val imgMap = networkMapper.mapFromEntityList(imgData)
+            for (tempImg in imgMap){
+                imgDao.insert(cacheMapper.mapToEntity(tempImg))
             }
-            val cacheDog = dogDao.get()
-            emit(DataState.Success(cacheMapper.mapFromEntityList(cacheDog)))
+            val cacheImg = imgDao.get()
+            emit(DataState.Success(cacheMapper.mapFromEntityList(cacheImg)))
         } catch (e: Exception){
             emit(DataState.Error(e))
         }

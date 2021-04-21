@@ -30,7 +30,7 @@ constructor(
     private val viewModel: MainViewModel by viewModels()
 
     @Inject
-    lateinit var dogAdapter: Adapter
+    lateinit var imgAdapter: Adapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,11 +45,11 @@ constructor(
         layoutManager.reverseLayout = true
         layoutManager.stackFromEnd = true
         rv.layoutManager = layoutManager
-        rv.adapter = dogAdapter
+        rv.adapter = imgAdapter
 
         subscribeObservers()
         lifecycleScope.launch {
-            viewModel.userIntent.send(Intent.GetDogEvent)
+            viewModel.userIntent.send(Intent.GetImgEvent)
         }
     }
 
@@ -60,7 +60,7 @@ constructor(
                     is DataState.Success -> {
                         displayProgressBar(false)
 //                    appendDogID(dataState.data)
-                        dogAdapter.setImg(it.dogs)
+                        imgAdapter.setImg(it.images)
                     }
                     is DataState.Error -> {
                         displayProgressBar(false)

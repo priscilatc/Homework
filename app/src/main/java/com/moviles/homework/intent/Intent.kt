@@ -1,6 +1,6 @@
 package com.moviles.homework.intent
 
 sealed class Intent{
-    object GetDogEvent: Intent()
+    object GetImgEvent: Intent()
     object None: Intent()
 }

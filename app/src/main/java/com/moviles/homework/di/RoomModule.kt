@@ -2,8 +2,8 @@ package com.moviles.homework.di
 
 import android.content.Context
 import androidx.room.Room
-import com.moviles.homework.room.DogDao
-import com.moviles.homework.room.DogDatabase
+import com.moviles.homework.room.ImgDao
+import com.moviles.homework.room.ImgDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,14 +17,14 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun provideDogDb(@ApplicationContext context: Context): DogDatabase {
+    fun provideDogDb(@ApplicationContext context: Context): ImgDatabase {
         return Room
-            .databaseBuilder(context, DogDatabase::class.java, DogDatabase.DATABASE_NAME).fallbackToDestructiveMigration().build()
+            .databaseBuilder(context, ImgDatabase::class.java, ImgDatabase.DATABASE_NAME).fallbackToDestructiveMigration().build()
     }
 
     @Singleton
     @Provides
-    fun provideDogDao(dogDatabase: DogDatabase): DogDao {
-        return dogDatabase.DogDao()
+    fun provideDogDao(imgDatabase: ImgDatabase): ImgDao {
+        return imgDatabase.ImgDao()
     }
 }

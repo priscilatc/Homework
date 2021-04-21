@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "dog")
-class DogCacheEntity (
+@Entity(tableName = "img")
+class ImgCacheEntity (
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name= "id")
     var id: String,

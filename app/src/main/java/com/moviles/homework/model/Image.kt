@@ -1,6 +1,6 @@
 package com.moviles.homework.model
 
-data class Dog(
+data class Image(
     var id: String,
     var url: String,
     var width: Int,

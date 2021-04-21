@@ -1,15 +1,15 @@
 package com.moviles.homework.room
 
-import com.moviles.homework.model.Dog
+import com.moviles.homework.model.Image
 import com.moviles.homework.utils.EntityMapper
 import javax.inject.Inject
 
 class CacheMapper
 @Inject
 constructor():
-    EntityMapper<DogCacheEntity, Dog>{
-    override fun mapFromEntity(entity: DogCacheEntity): Dog {
-        return Dog(
+    EntityMapper<ImgCacheEntity, Image>{
+    override fun mapFromEntity(entity: ImgCacheEntity): Image {
+        return Image(
             id = entity.id,
             url = entity.url,
             height = entity.height,
@@ -17,8 +17,8 @@ constructor():
         )
     }
 
-    override fun mapToEntity(domainModel: Dog): DogCacheEntity {
-        return DogCacheEntity(
+    override fun mapToEntity(domainModel: Image): ImgCacheEntity {
+        return ImgCacheEntity(
             id = domainModel.id,
             url = domainModel.url,
             height = domainModel.height,
@@ -26,7 +26,7 @@ constructor():
         )
     }
 
-    fun mapFromEntityList(entities: List<DogCacheEntity>): List<Dog>{
+    fun mapFromEntityList(entities: List<ImgCacheEntity>): List<Image>{
         return entities.map { mapFromEntity(it) }
     }
 }

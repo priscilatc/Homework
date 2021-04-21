@@ -7,14 +7,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.moviles.homework.R
-import com.moviles.homework.model.Dog
+import com.moviles.homework.model.Image
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_dog.*
-import kotlinx.android.synthetic.main.item_dog.view.*
+import kotlinx.android.synthetic.main.item_img.*
+import kotlinx.android.synthetic.main.item_img.view.*
 
 class Adapter () : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-    lateinit var items: ArrayList<Dog>
+    lateinit var items: ArrayList<Image>
 
     override fun getItemCount(): Int {
         return if (::items.isInitialized){
@@ -24,24 +24,24 @@ class Adapter () : RecyclerView.Adapter<Adapter.ViewHolder>() {
         }
     }
 
-    fun setImg(items: List<Dog>){
-        this.items = items as ArrayList<Dog>
+    fun setImg(items: List<Image>){
+        this.items = items as ArrayList<Image>
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_dog, parent, false))
+        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_img, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model= items[position]
         holder.sizeInfo.text="${model.width} x ${model.height}"
         Picasso.get()
             .load(model.url)
-            .into(holder.dogImage)
+            .into(holder.imgImage)
     }
 
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view){
-      val dogImage: ImageView = view.iv_dog
+      val imgImage: ImageView = view.iv_img
       val sizeInfo: TextView = view.tv_info
 
     }

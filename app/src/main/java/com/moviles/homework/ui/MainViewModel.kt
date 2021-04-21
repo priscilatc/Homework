@@ -6,7 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.moviles.homework.intent.Intent
-import com.moviles.homework.repository.DogRepository
+import com.moviles.homework.repository.ImgRepository
 import com.moviles.homework.utils.DataState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 class MainViewModel
 @ViewModelInject
 constructor (
-    private val dogRepository: DogRepository,
+    private val imgRepository: ImgRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
     ) : ViewModel() {
         val userIntent = Channel<Intent>(Channel.UNLIMITED)
@@ -33,8 +33,8 @@ constructor (
             viewModelScope.launch {
                 userIntent.consumeAsFlow().collect { intnt ->
                     when (intnt) {
-                        is Intent.GetDogEvent -> {
-                            dogRepository.getImg()
+                        is Intent.GetImgEvent -> {
+                            imgRepository.getImg()
                                 .onEach {
                                     _dataState.value = it
                                 }
