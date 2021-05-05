@@ -27,7 +27,7 @@ object RetrofitModule {
     @Provides
     fun provideRetrofit(gson: Gson): Retrofit.Builder{
         return Retrofit.Builder()
-            .baseUrl("https://picsum.photos/v2/")
+            .baseUrl("https://api-jimin.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create(gson))
     }
 

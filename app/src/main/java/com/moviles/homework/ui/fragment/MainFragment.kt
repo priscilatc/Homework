@@ -59,7 +59,7 @@ constructor(
                 when (it) {
                     is DataState.Success -> {
                         displayProgressBar(false)
-//                    appendDogID(dataState.data)
+//                    appendImgID(dataState.data)
                         imgAdapter.setImg(it.images)
                     }
                     is DataState.Error -> {

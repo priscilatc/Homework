@@ -3,6 +3,6 @@ package com.moviles.homework.retrofit
 import retrofit2.http.GET
 
 interface ImgRetrofit {
-    @GET("list")
+    @GET("photos")
     suspend fun get(): List<ImgNetworkEntity>
 }

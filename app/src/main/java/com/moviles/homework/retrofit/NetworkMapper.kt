@@ -11,8 +11,8 @@ constructor(): EntityMapper<ImgNetworkEntity, Image> {
         return Image(
             id = entity.id,
             url = entity.url,
-            height = entity.height,
-            width = entity.width
+            descripcion = entity.descripcion,
+            color = entity.color
         )
     }
 
@@ -20,8 +20,8 @@ constructor(): EntityMapper<ImgNetworkEntity, Image> {
         return ImgNetworkEntity(
             id = domainModel.id,
             url = domainModel.url,
-            height = domainModel.height,
-            width = domainModel.width
+            descripcion = domainModel.descripcion,
+            color = domainModel.color
 
         )
     }

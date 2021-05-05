@@ -34,7 +34,9 @@ class Adapter () : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model= items[position]
-        holder.sizeInfo.text="${model.width} x ${model.height}"
+        holder.descripcion.text="${model.descripcion}"
+        holder.color.text="${model.color}"
+
         Picasso.get()
             .load(model.url)
             .into(holder.imgImage)
@@ -42,8 +44,8 @@ class Adapter () : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view){
       val imgImage: ImageView = view.iv_img
-      val sizeInfo: TextView = view.tv_info
-
+      val descripcion: TextView = view.tv_descripcion
+      val color : TextView = view.tv_color
     }
 }
 

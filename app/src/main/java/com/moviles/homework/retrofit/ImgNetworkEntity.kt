@@ -8,15 +8,15 @@ class ImgNetworkEntity (
     @Expose
     var id: String,
 
-    @SerializedName("download_url")
+    @SerializedName("url")
     @Expose
     var url: String,
 
-    @SerializedName("width")
+    @SerializedName("descripcion")
     @Expose
-    var width: Int,
+    var descripcion: String,
 
-    @SerializedName("height")
+    @SerializedName("color")
     @Expose
-    var height: Int
+    var color: String
 )

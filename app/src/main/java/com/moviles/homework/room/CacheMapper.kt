@@ -12,8 +12,8 @@ constructor():
         return Image(
             id = entity.id,
             url = entity.url,
-            height = entity.height,
-            width = entity.height
+            descripcion = entity.descripcion,
+            color = entity.color
         )
     }
 
@@ -21,8 +21,8 @@ constructor():
         return ImgCacheEntity(
             id = domainModel.id,
             url = domainModel.url,
-            height = domainModel.height,
-            width = domainModel.width
+            descripcion = domainModel.descripcion,
+            color = domainModel.color
         )
     }
 

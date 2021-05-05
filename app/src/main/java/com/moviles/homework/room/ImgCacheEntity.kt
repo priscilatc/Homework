@@ -11,9 +11,9 @@ class ImgCacheEntity (
     var id: String,
     @ColumnInfo(name = "url")
     var url: String,
-    @ColumnInfo(name = "width")
-    var width: Int,
-    @ColumnInfo(name = "height")
-    var height: Int
+    @ColumnInfo(name = "descripcion")
+    var descripcion: String,
+    @ColumnInfo(name = "color")
+    var color: String
 
 )
