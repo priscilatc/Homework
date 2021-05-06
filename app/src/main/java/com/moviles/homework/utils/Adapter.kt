@@ -3,13 +3,11 @@ package com.moviles.homework.utils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.moviles.homework.R
 import com.moviles.homework.model.Image
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_img.*
 import kotlinx.android.synthetic.main.item_img.view.*
 
 class Adapter () : RecyclerView.Adapter<Adapter.ViewHolder>() {
@@ -35,7 +33,7 @@ class Adapter () : RecyclerView.Adapter<Adapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model= items[position]
         holder.descripcion.text="${model.descripcion}"
-        holder.color.text="${model.color}"
+        holder.color.text="|${model.color}"
 
         Picasso.get()
             .load(model.url)
@@ -46,6 +44,9 @@ class Adapter () : RecyclerView.Adapter<Adapter.ViewHolder>() {
       val imgImage: ImageView = view.iv_img
       val descripcion: TextView = view.tv_descripcion
       val color : TextView = view.tv_color
+
     }
 }
+
+
 
