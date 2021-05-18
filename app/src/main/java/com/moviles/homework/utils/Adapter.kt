@@ -32,8 +32,8 @@ class Adapter () : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model= items[position]
-        holder.descripcion.text="${model.descripcion}"
-        holder.color.text="|${model.color}"
+        holder.descripcion.text="Name: ${model.descripcion}"
+        holder.color.text="Color Hair: ${model.color}"
 
         Picasso.get()
             .load(model.url)
