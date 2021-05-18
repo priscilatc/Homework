@@ -8,6 +8,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import com.moviles.homework.utils.DataState
+import java.net.UnknownHostException
 
 class ImgRepository constructor(
     private val imgDao: ImgDao,
@@ -27,7 +28,18 @@ class ImgRepository constructor(
             val cacheImg = imgDao.get()
             emit(DataState.Success(cacheMapper.mapFromEntityList(cacheImg)))
         } catch (e: Exception){
-            emit(DataState.Error(e))
+            when(e){
+
+                is UnknownHostException ->{
+                    val cacheDog = imgDao.get()
+                    if(cacheDog.isEmpty()){
+
+                        emit(DataState.Error(java.lang.Exception("Tabla perrito vacia,conectate  a internet para agregar datos en ella")))
+                    }else{
+                        emit(DataState.Success(cacheMapper.mapFromEntityList(cacheDog)))
+                    }
+                }
+            }
         }
     }
 }
